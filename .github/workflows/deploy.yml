@@ -24,4 +24,5 @@ jobs:
     - run: echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin
     - run: docker build -t nnado/react-test -f Dockerfile.dev .
     - run: docker run -e CI=true nnado/react-test npm test
+    - run: docker push nnado/react-test
 
